@@ -1,0 +1,12 @@
+version: '3'
+services:
+  fastapi:
+    container_name: fapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/srv/api/src
+    ports:
+      - "9000:9000" 
+    tty: true
