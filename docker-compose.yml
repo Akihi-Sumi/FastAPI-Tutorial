@@ -1,13 +1,18 @@
 version: '3'
 services:
-  fastapi:
-    container_name: fapi
+  app:
+    container_name: fastapi
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
       - ./workspace:/workspace
     ports:
-      - "9000:9000" 
+      - "9000:9000"
+    command:
+      uvicorn main:app
+      --reload 
+      --host 0.0.0.0 
+      --port 9000
     working_dir: /workspace
     tty: true
