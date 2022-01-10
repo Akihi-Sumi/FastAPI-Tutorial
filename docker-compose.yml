@@ -6,7 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./app:/srv/api/src
+      - ./workspace:/workspace
     ports:
       - "9000:9000" 
+    working_dir: /workspace
     tty: true
